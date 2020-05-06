@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd">
+
+    <!--bean就是java对象 , 由Spring创建和管理-->
+    <bean id="student" class="com.kuang.pojo.Student">
+        <!--        第一种注入，普通注入-->
+        <property name="name" value="袁堂波"></property>
+        <!--        第二种，Bean注入-->
+        <property name="address" ref="address"></property>
+        <!--        第三种，数组注入-->
+        <property name="books">
+            <array value-type="java.lang.String">
+                <value>红楼梦</value>
+                <value>西游记</value>
+                <value>三国演义</value>
+                <value>水浒传</value>
+            </array>
+        </property>
+        <!--        第四种，list注入-->
+        <property name="hobbies">
+            <list value-type="java.lang.String">
+                <value>唱歌</value>
+                <value>看电影</value>
+                <value>码代码</value>
+            </list>
+        </property>
+
+        <!--        第五种，map注入-->
+        <property name="card">
+            <map key-type="java.lang.String" value-type="java.lang.String">
+                <entry key="校园卡" value="123456"></entry>
+                <entry key="银行卡" value="666666"></entry>
+                <entry key="身份证" value="556"></entry>
+            </map>
+        </property>
+
+        <!--       第六种， set注入-->
+        <property name="games">
+            <set>
+                <value>剑网三</value>
+                <value>lol</value>
+            </set>
+        </property>
+
+        <!--        null值注入-->
+        <property name="wife">
+            <null></null>
+        </property>
+
+        <!--        properties注入-->
+        <property name="info">
+            <props>
+                <prop key="姓名">布莱恩特</prop>
+                <prop key="学号">20190525</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="address" class="com.kuang.pojo.Address">
+        <property name="address" value="中国"></property>
+    </bean>
+
+    <bean id="user" class="com.kuang.pojo.User" p:id="1429401015" p:name="袁堂波"></bean>
+    <bean id="user2" class="com.kuang.pojo.User" c:id="1429400000" c:name="faker" />
+
+</beans>

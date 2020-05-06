@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/lang
+        http://www.springframework.org/schema/lang/spring-lang.xsd">
+
+
+    <!--bean就是java对象 , 由Spring创建和管理-->
+    <!--    手动装配-->
+    <bean id="cat" class="com.kuang.pojo.Cat"></bean>
+    <bean id="dog" class="com.kuang.pojo.Dog"></bean>
+    <!--    <bean id="person" class="com.kuang.pojo.Person" p:name="袁堂波" p:cat-ref="cat" p:dog-ref="dog"></bean>-->
+    <!--    根据xml的方式实现自动装配-->
+    <!--    <bean id="person" class="com.kuang.pojo.Person" p:name="faker" autowire="byType"></bean>-->
+    <bean id="person" class="com.kuang.pojo.Person"></bean>
+
+    <context:annotation-config/>
+
+</beans>
